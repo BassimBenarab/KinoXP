@@ -1,0 +1,15 @@
+# Use root/example as user/password credentials
+
+services:
+
+  db:
+    image: mysql:8
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: abcdef1
+      MYSQL_DATABASE: kinodatabase
+      MYSQL_USER: laman
+      MYSQL_PASSWORD: abcdef2
+    ports:
+      -  "3306:3306"
+    # (this is just an example, not intended to be a production configuration)
