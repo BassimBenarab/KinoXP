@@ -1,0 +1,123 @@
+/* Reset – fjern standard margin */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Hele siden */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000;   /* sort baggrund */
+    color: #fff;
+}
+
+/* ØVERSTE BAR */
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+    background-color: #111;   /* næsten sort */
+}
+
+/* Logo */
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: orange;
+}
+
+/* MENU */
+.main-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #ddd;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+.main-nav a:hover {
+    color: #fff;
+}
+
+/* Knapper til højre */
+.right-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.buy-button,
+.login-button {
+    border: none;
+    padding: 8px 14px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+/* Orange køb-billet knap */
+.buy-button {
+    background-color: orange;
+    color: #000;
+    font-weight: bold;
+}
+
+/* Grå log på knap */
+.login-button {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #555;
+}
+
+/* HERO OMRÅDE (stort billede) */
+.hero {
+    height: calc(100vh - 70px); /* fuld højde minus topbar */
+    background-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.8),
+            rgba(0, 0, 0, 0.2)
+    ),
+    url("https://images.pexels.com/photos/799137/pexels-photo-799137.jpeg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding-left: 60px;
+}
+
+/* Teksten inde i hero */
+.hero-content {
+    max-width: 400px;
+}
+
+.tagline {
+    font-size: 14px;
+    color: #f1c40f;
+    margin-bottom: 10px;
+}
+
+.movie-title {
+    font-size: 40px;
+    margin-bottom: 5px;
+}
+
+.movie-subtitle {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #ddd;
+}
+
+/* Knap i hero */
+.hero-buy-button {
+    background-color: orange;
+    color: #000;
+    border: none;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
