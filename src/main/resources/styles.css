@@ -1,4 +1,4 @@
-/* Reset – fjern standard margin */
+/* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -8,17 +8,18 @@
 /* Hele siden */
 body {
     font-family: Arial, sans-serif;
-    background-color: #000;   /* sort baggrund */
+    background-color: #ba7924;
     color: #fff;
 }
 
 /* ØVERSTE BAR */
 .topbar {
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px 40px;
-    background-color: #111;   /* næsten sort */
+    padding: 0 40px;
+    background-color: #000000;
 }
 
 /* Logo */
@@ -31,7 +32,7 @@ body {
 /* MENU */
 .main-nav {
     display: flex;
-    gap: 20px;
+    gap: 24px;
 }
 
 .main-nav a {
@@ -45,43 +46,69 @@ body {
     color: #fff;
 }
 
-/* Knapper til højre */
+/* Højre side knapper */
 .right-actions {
     display: flex;
+    align-items: center;
     gap: 10px;
 }
 
-.buy-button,
-.login-button {
-    border: none;
-    padding: 8px 14px;
+/* Admin-link */
+.admin-link {
+    color: #bbb;
+    text-decoration: none;
     font-size: 13px;
-    cursor: pointer;
+    padding: 10px 10px;
 }
 
-/* Orange køb-billet knap */
-.buy-button {
-    background-color: orange;
-    color: #000;
+.admin-link:hover {
+    color: #fff;
+}
+
+/* Fælles knap-stil */
+.buy-button,
+.login-button,
+.hero-buy-button,
+.movie-buy-button {
+    border: none;
+    padding: 10px 14px;
+    font-size: 13px;
+    cursor: pointer;
     font-weight: bold;
 }
 
-/* Grå log på knap */
+/* Orange knapper */
+.buy-button,
+.hero-buy-button,
+.movie-buy-button {
+    background-color: orange;
+    color: #000;
+}
+
+.buy-button:hover,
+.hero-buy-button:hover,
+.movie-buy-button:hover {
+    filter: brightness(0.9);
+}
+
+/* Log på knap */
 .login-button {
     background-color: transparent;
     color: #fff;
     border: 1px solid #555;
+    font-weight: normal;
 }
 
-/* HERO OMRÅDE (stort billede) */
+.login-button:hover {
+    border-color: #888;
+}
+
+/* HERO */
 .hero {
-    height: calc(100vh - 70px); /* fuld højde minus topbar */
-    background-image: linear-gradient(
-            to right,
-            rgba(0, 0, 0, 0.8),
-            rgba(0, 0, 0, 0.2)
-    ),
-    url("https://images.pexels.com/photos/799137/pexels-photo-799137.jpeg");
+    height: calc(100vh - 70px);
+    background-image:
+            linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.2)),
+            url("https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg");
     background-size: cover;
     background-position: center;
     display: flex;
@@ -89,9 +116,8 @@ body {
     padding-left: 60px;
 }
 
-/* Teksten inde i hero */
 .hero-content {
-    max-width: 400px;
+    max-width: 500px;
 }
 
 .tagline {
@@ -101,8 +127,8 @@ body {
 }
 
 .movie-title {
-    font-size: 40px;
-    margin-bottom: 5px;
+    font-size: 48px;
+    margin-bottom: 6px;
 }
 
 .movie-subtitle {
@@ -111,13 +137,95 @@ body {
     color: #ddd;
 }
 
-/* Knap i hero */
-.hero-buy-button {
-    background-color: orange;
-    color: #000;
-    border: none;
-    padding: 10px 18px;
+/* MOVIES SECTION */
+.movies-section {
+    padding: 60px;
+    background-color: #000;
+}
+
+.movies-section h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+/* Film-container (flere rækker) */
+.movies-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Film kort */
+.movie-card {
+    background-color: #111;
+    padding: 12px;
+    width: 200px;
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+.movie-card:hover {
+    transform: scale(1.03);
+}
+
+.movie-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.movie-card h3 {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+/* Film knap */
+.movie-buy-button {
+    width: 140px;
+}
+
+/* FOOTER */
+.footer {
+    background-color: #111;
+    color: white;
+    padding: 40px 60px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 180px;
+}
+
+.footer-column h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.footer-column a {
+    text-decoration: none;
+    color: #ccc;
     font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
+}
+
+.footer-column a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    border-top: 1px solid #333;
+    padding-top: 15px;
+    text-align: center;
+    font-size: 14px;
+    color: #888;
 }
