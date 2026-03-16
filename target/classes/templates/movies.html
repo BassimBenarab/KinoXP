@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Movie Details</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      background-color: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 30px;
+    }
+
+    .movie-box {
+      max-width: 700px;
+      margin: auto;
+      background-color: #1c1c1c;
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    img {
+      width: 250px;
+      border-radius: 10px;
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    .show-list {
+      margin-top: 20px;
+    }
+
+    .show-item {
+      background-color: #2b2b2b;
+      padding: 12px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+    }
+
+    a {
+      color: orange;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<div class="movie-box">
+  <img th:src="@{${movie.imageUrl}}" alt="Movie Poster">
+
+  <h1 th:text="${movie.title}">Movie Title</h1>
+  <p th:text="${movie.genre}">Genre</p>
+  <p th:text="${movie.durationMinutes} + ' min'">120 min</p>
+
+  <h2>Available Shows</h2>
+
+  <div class="show-list">
+    <div class="show-item" th:each="show : ${shows}">
+      <p th:text="${show.showTime}">2026-03-15T20:00</p>
+      <a th:href="@{/reservations/show/{id}(id=${show.id})}">Book reservation</a>
+    </div>
+  </div>
+
+  <br>
+  <a th:href="@{/}">← Back to front page</a>
+</div>
+
+</body>
+</html>
