@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Shows</title>
+</head>
+<body>
+<h1>Shows</h1>
+
+<form th:action="@{/shows/save}" method="post" th:object="${show}">
+    <label>Movie:</label>
+    <select th:field="*{movie}">
+        <option th:each="movie : ${movies}"
+                th:value="${movie.id}"
+                th:text="${movie.title}">
+        </option>
+    </select>
+
+    <input type="text" th:field="*{hallName}" placeholder="Hall name" required>
+    <input type="datetime-local" th:field="*{showTime}" required>
+    <input type="number" th:field="*{totalSeats}" placeholder="Total seats" required>
+
+    <button type="submit">Save show</button>
+</form>
+
+<hr>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Movie</th>
+        <th>Hall</th>
+        <th>Time</th>
+        <th>Total seats</th>
+        <th>Action</th>
+    </tr>
+    <tr th:each="show : ${shows}">
+        <td th:text="${show.id}"></td>
+        <td th:text="${show.movie.title}"></td>
+        <td th:text="${show.hallName}"></td>
+        <td th:text="${show.showTime}"></td>
+        <td th:text="${show.totalSeats}"></td>
+        <td>
+            <a th:href="@{/shows/delete/{id}(id=${show.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
+
+<br>
+<a th:href="@{/}">Back</a>
+</body>
+</html>

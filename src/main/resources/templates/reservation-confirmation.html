@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Reservation Confirmed</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            background-color: #111;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 30px;
+        }
+
+        .box {
+            max-width: 700px;
+            margin: auto;
+            background-color: #1c1c1c;
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        a {
+            color: orange;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h1>Reservation confirmed 🎟️</h1>
+
+    <p><strong>Customer:</strong> <span th:text="${reservation.customerName}">Name</span></p>
+    <p><strong>Movie:</strong> <span th:text="${reservation.show.movie.title}">Movie</span></p>
+    <p><strong>Show time:</strong> <span th:text="${reservation.show.showTime}">Time</span></p>
+    <p><strong>Hall:</strong> <span th:text="${reservation.show.hallName}">Hall</span></p>
+    <p><strong>Row:</strong> <span th:text="${reservation.rowNumber}">1</span></p>
+    <p><strong>Seat:</strong> <span th:text="${reservation.seatNumber}">1</span></p>
+    <p><strong>Price:</strong> <span th:text="${reservation.price}">100</span> kr</p>
+
+    <br>
+    <a th:href="@{/}">← Back to front page</a>
+</div>
+
+</body>
+</html>
