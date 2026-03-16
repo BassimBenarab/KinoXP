@@ -17,6 +17,9 @@ public class ReservationService {
         this.reservationRepository = reservationRepository;
         this.showService = showService;
     }
+    public Reservation createReservation(Reservation reservation) {
+        return reservationRepository.save(reservation);
+    }
 
     public Reservation createReservation(Long showId, String customerName, int rowNumber, int seatNumber) {
         Show show = showService.findById(showId);
