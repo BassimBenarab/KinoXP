@@ -1,7 +1,6 @@
 package com.kinoxp.kinoxp.model;
 
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
 public class Reservation {
@@ -11,38 +10,62 @@ public class Reservation {
     private Long id;
 
     private String customerName;
-    private String customerEmail;
+    private int rowNumber;
+    private int seatNumber;
+    private double price;
 
-    private LocalDateTime createdAt = LocalDateTime.now();
-
-    @ManyToOne(optional = false)
+    @ManyToOne
     @JoinColumn(name = "show_id")
     private Show show;
 
+    public Reservation() {
+    }
 
+    public Long getId() {
+        return id;
+    }
 
+    public String getCustomerName() {
+        return customerName;
+    }
 
-    public Reservation(String customerName, String customerEmail, Show show) {
+    public int getRowNumber() {
+        return rowNumber;
+    }
+
+    public int getSeatNumber() {
+        return seatNumber;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public Show getShow() {
+        return show;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setCustomerName(String customerName) {
         this.customerName = customerName;
-        this.customerEmail = customerEmail;
+    }
+
+    public void setRowNumber(int rowNumber) {
+        this.rowNumber = rowNumber;
+    }
+
+    public void setSeatNumber(int seatNumber) {
+        this.seatNumber = seatNumber;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setShow(Show show) {
         this.show = show;
     }
-
-    public Reservation() {
-
-    }
-
-
-    public Long getId() { return id; }
-
-    public String getCustomerName() { return customerName; }
-    public void setCustomerName(String customerName) { this.customerName = customerName; }
-
-    public String getCustomerEmail() { return customerEmail; }
-    public void setCustomerEmail(String customerEmail) { this.customerEmail = customerEmail; }
-
-    public LocalDateTime getCreatedAt() { return createdAt; }
-
-    public Show getShow() { return show; }
-    public void setShow(Show show) { this.show = show; }
 }

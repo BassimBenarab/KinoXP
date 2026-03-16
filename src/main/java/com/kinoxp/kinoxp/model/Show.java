@@ -1,42 +1,74 @@
 package com.kinoxp.kinoxp.model;
 
 import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
+@Table(name = "`show`")
+
 public class Show {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalDateTime startDateTime;
-
-    @ManyToOne(optional = false)
+    @ManyToOne
     @JoinColumn(name = "film_id")
-    private Film film;
+    private Movie movie;
 
-    @OneToMany(mappedBy = "show", cascade = CascadeType.ALL)
-    private List<Reservation> reservations = new ArrayList<>();
+    private String hallName;
 
+    private LocalDateTime showTime;
+
+    private int totalSeats;
 
     public Show() {}
 
-    public Show(LocalDateTime startDateTime, Film film) {
-        this.startDateTime = startDateTime;
-        this.film = film;
+    public Show(Movie movie, String hallName, LocalDateTime showTime, int totalSeats) {
+        this.movie = movie;
+        this.hallName = hallName;
+        this.showTime = showTime;
+        this.totalSeats = totalSeats;
     }
 
+    public Long getId() {
+        return id;
+    }
 
-    public Long getId() { return id; }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public LocalDateTime getStartDateTime() { return startDateTime; }
-    public void setStartDateTime(LocalDateTime startDateTime) { this.startDateTime = startDateTime; }
+    public Movie getMovie() {
+        return movie;
+    }
 
-    public Film getFilm() { return film; }
-    public void setFilm(Film film) { this.film = film; }
+    public void setMovie(Movie movie) {
+        this.movie = movie;
+    }
 
-    public List<Reservation> getReservations() { return reservations; }
+    public String getHallName() {
+        return hallName;
+    }
+
+    public void setHallName(String hallName) {
+        this.hallName = hallName;
+    }
+
+    public LocalDateTime getShowTime() {
+        return showTime;
+    }
+
+    public void setShowTime(LocalDateTime showTime) {
+        this.showTime = showTime;
+    }
+
+    public int getTotalSeats() {
+        return totalSeats;
+    }
+
+    public void setTotalSeats(int totalSeats) {
+        this.totalSeats = totalSeats;
+    }
 }
